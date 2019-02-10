@@ -4,6 +4,20 @@
 # Difficulty: easy.
 
 def time_conversion(minutes)
+  hours = 0
+
+  if minutes > 60
+    hours = minutes / 60
+    minutes = minutes - ( hours * 60 )
+  end
+
+  if minutes < 10
+    minutes = "0" + minutes.to_s
+  else
+    minutes = minutes.to_s
+  end
+
+  return hours.to_s + ":" + minutes
 end
 
 # These are tests to check that your code is working. After writing

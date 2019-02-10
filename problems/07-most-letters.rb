@@ -5,6 +5,21 @@
 # Difficulty: medium.
 
 def nearby_az(string)
+
+  idx = 0
+  while idx < string.length
+    if string[idx] == "a"
+      idx2 = idx + 1
+      while idx2 <= idx + 3
+        if string[idx2] == "z"
+          return true
+        end
+        idx2 += 1
+      end
+    end
+    idx += 1
+  end
+  return false
 end
 
 # These are tests to check that your code is working. After writing

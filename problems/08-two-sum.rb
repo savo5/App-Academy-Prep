@@ -5,6 +5,23 @@
 # Difficulty: medium.
 
 def two_sum(nums)
+
+  positions = []
+
+  idx = 0
+
+  while idx < nums.length
+    idx2 = idx + 1
+    while idx2 < nums.length -1
+      if idx + idx2 == 0
+        positions.push[idx, idx2]
+      end
+      idx2 += 1
+    end
+    idx += 1
+  end
+
+
 end
 
 # These are tests to check that your code is working. After writing
