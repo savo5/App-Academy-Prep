@@ -68,7 +68,7 @@ end
 # (gcd_of_last_digits(93, 9) = 3.gcd(9) => 3)
 # Bonus points if you use last_digit as a helper method.
 def gcd_of_last_digits(int_one, int_two)
-
+  last_digit(int_one).gcd(last_digit(int_two))
 end
 
 # Write a method that returns the last n digits of its first argument,
