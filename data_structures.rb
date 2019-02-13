@@ -34,12 +34,13 @@ end
 
 # Write a method that returns a boolean indicating whether a string has repeating letters. Capital letters count as repeats of lowercase ones, e.g., repeating_letters?("Aa") => true
 def repeating_letters?(str)
-
+  str.downcase.chars.uniq.length != str.length
 end
 
 # Write a method that converts an array of ten integers into a phone number in the format "(123) 456-7890".
 def to_phone_number(arr)
-
+  arr = arr.join
+  "(" + arr[0,3] + ") " + arr[3,3] + "-" + arr[6,4]
 end
 
 # Write a method that returns the range of a string of comma-separated integers, e.g., str_range("4,1,8") #=> 7
