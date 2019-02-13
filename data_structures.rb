@@ -45,7 +45,8 @@ end
 
 # Write a method that returns the range of a string of comma-separated integers, e.g., str_range("4,1,8") #=> 7
 def str_range(str)
-
+  str = str.split(",")
+  str.max.to_i -  str.min.to_i
 end
 
 
@@ -54,5 +55,6 @@ end
 # Write a method that is functionally equivalent to the rotate(offset) method of arrays. offset=1 ensures that the value of offset is 1 if no argument is provided.
 # HINT: use the take(num) and drop(num) methods. You won't need much code, but the solution is tricky!
 def my_rotate(arr, offset=1)
-
+  offset = offset % arr.length
+  arr.drop(offset) + arr.take(offset)
 end
