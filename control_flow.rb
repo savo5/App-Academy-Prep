@@ -228,7 +228,29 @@ end
 
 # Return the one integer in an array that is even or odd while the rest are of opposite parity, e.g. oddball([1,2,3]) => 2, oddball([2,4,5,6] => 5)
 def oddball(arr)
+  # 1. create an empty array for odd and an empty array for even numbers 
+  # 2. iterate through each element in argument
+  # 3. if element is odd, add to odd array
+  # 4. if element is even, add to even array
+  # 5. if off array is length one return element in array
+  # 6. else return element in even array
 
+  odd = []
+  even = []
+
+  arr.each do |i|
+    if i.odd?
+      odd.push(i)
+    else
+      even.push(i)
+    end
+  end
+
+  if odd.length == 1
+    return odd[0]
+  end
+
+  even[0]
 
   # your code goes here
 end
