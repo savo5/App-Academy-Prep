@@ -189,12 +189,37 @@ end
 
 # Write a method that returns a sorted array of the factors of its argument.
 def factors(num)
+  factors = []
 
+  i = 1
+  while i <= num
+    if num % i == 0
+      factors.push(i)
+    end
+    i += 1
+  end
+
+factors
 end
 
 # Write a method that returns a sorted array of the prime factors of its argument.
 def prime_factors(num)
+  prime_factors = []
 
+  factors(num).each do |factor|
+    if prime?(factor)
+      prime_factors.push(factor)
+    end
+  end
+
+  prime_factors
+
+
+end
+
+# Write a method that returns the number of prime factors of its argument.
+def num_prime_factors(num)
+  prime_factors(num).length
 
 end
 
