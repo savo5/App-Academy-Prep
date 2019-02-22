@@ -56,7 +56,14 @@ def ordered_vowel_words(words)
 end
 
 def ordered_vowel_word?(word)
-
+  vowels = ["a", "e", "i", "o", "u"]
+  vowels_in_word = []
+  word.each_char {|letter| vowels_in_word << letter if vowels.include?(letter)}
+  if vowels_in_word == vowels_in_word.sort
+    return true
+  else
+    return false
+  end
 end
 
 # Given an array of numbers, return an array of all the products remaining when each element is removed from the array.
@@ -78,6 +85,6 @@ def products_except_me(numbers)
 end
 
 def array_product(array)
-
+  array.reduce(:*)
 
 end
