@@ -52,14 +52,30 @@ end
 
 # Define a method that, given an array, returns its argument without duplicates. Use a hash! Don't use the uniq method.
 def uniq(arr)
+  frequencies = Hash.new(0)
 
+  arr.each do |el|
+    frequencies[el] += 1
+  end
+
+  frequencies.select {|k,v| v = 1 }.keys
 
 
 end
 
 # Define a method that, given an array of numbers, returns a hash with "even" and "odd" as keys and the frequency of each parity as values.
 def evens_and_odds(numbers)
+  frequencies = {"even" => 0, "odd" => 0 }
 
+  numbers.each do |el|
+    if el.even?
+      frequencies["even"] += 1
+    else
+      frequencies["odd"] += 1
+    end
+  end
+
+  frequencies
 
 
 end
