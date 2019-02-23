@@ -35,12 +35,13 @@ end
 
 # Define a method that accepts two years and returns an array of the years within that range (inclusive) that have no repeated digits. Hint: helper method?
 def no_repeat_years(first_yr, last_yr)
-
+  years = (first_yr..last_yr).to_a
+  years.select {|year| not_repeat_year?(year)}
 
 end
 
 def not_repeat_year?(year)
-
+  year.to_s.split("").uniq.join.to_i == year
 end
 
 
@@ -62,7 +63,14 @@ end
 
 # Define a method that, given a string of words, returns the word that has the letter "c" closest to the end of it. If there's a tie, return the earlier word. Ignore punctuation. If there's no "c", return an empty string. You may wish to write the helper methods c_distance and remove_punctuation.
 def for_cs_sake(string)
+  string = string.delete!(",.?!").split(" ")
 
+  closest_c_word = ""
+
+  string.each do |word|
+    if c_distance(word) == nil
+      next
+    elsif c_distance(word) < closest_c_word
 end
 
 def c_distance(word)
