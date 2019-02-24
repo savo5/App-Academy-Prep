@@ -82,7 +82,13 @@ end
 
 # Define a method that, given a string, returns the most common vowel. If there's a tie, return the vowel that occurs earlier in the alphabet. Assume all letters are lower case.
 def most_common_vowel(string)
+  vowel_freq = {"a" => 0, "e" => 0, "i" => 0, "o" => 0, "u" => 0 }
 
+  string.downcase.chars do |letter|
+    if vowel_freq.include?(letter)
+      vowel_freq[letter] += 1
+    end
+  end
 
 
 
@@ -104,7 +110,23 @@ end
 #   ["Dottie", "Warren"]
 # ]
 def fall_and_winter_birthdays(students_with_birthdays)
+  second_half = students_with_birthdays.select {|k,v| v > 6 }
 
+  combinations =[]
+
+  names = second_half.keys
+
+  idx = 0
+  while idx < names.length - 1
+    idx2 = idx + 1
+    while idx2 < names.length
+      combinations << [names[idx], names[idx2]]
+      idx2 +=1
+    end
+    idx += 1
+  end
+
+  combinations
 
 
 end
@@ -114,7 +136,17 @@ end
 # biodiversity_index(["cat", "cat", "cat"]) => 1
 # biodiversity_index(["cat", "leopard-spotted ferret", "dog"]) => 9
 def biodiversity_index(specimens)
+  species = Hash.new(0)
 
+  specimens.each do |el|
+    species[el] += 1
+  end
+
+  num_species = species.length
+  smallest_pop = species.sort_by {|k, v| v }[0][-1]
+  largest_pop = species.sort_by {|k, v| v } [-1][-1]
+
+  index = num_species ** 2 * smallest_pop / largest_pop
 
 end
 
