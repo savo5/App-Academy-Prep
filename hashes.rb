@@ -153,12 +153,23 @@ end
 # Define a method that, given the string of a respectable business sign, returns a boolean indicating whether pranksters can make a given vandalized string using the available letters. Ignore capitalization and punctuation.
 # can_tweak_sign("We're having a yellow ferret sale for a good cause over at the pet shop!", "Leopard ferrets forever yo") => true
 def can_tweak_sign?(normal_sign, vandalized_sign)
+  normal_count = character_count(normal_sign)
+  vandalized_count = character_count(vandalized_sign)
 
+  normal_count.all? {|k, v| normal_count[k] >= vandalized_count[k] }
 
 
 end
 
 def character_count(str)
+  str.delete!(",.?!'")
 
+  counts = Hash.new(0)
+
+  str.downcase.chars do |letter|
+    counts[letter] += 1
+  end
+
+  counts
 
 end
